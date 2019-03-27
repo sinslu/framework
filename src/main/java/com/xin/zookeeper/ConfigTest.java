@@ -21,5 +21,6 @@ public class ConfigTest {
         System.out.println(new String(data));
         Stat stat=curatorFramework.setData().forPath("/test1","test".getBytes());
         System.out.println(stat);
+        System.out.println("test");
     }
 }
