@@ -8,10 +8,11 @@
     <artifactId>framework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
+    <!-- Inherit defaults from Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.1.3.RELEASE</version>
     </parent>
     <repositories>
         <repository>
@@ -39,11 +40,25 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <!-- Import dependency management from Spring Boot -->
+    <!--
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.1.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+   </dependencyManagement>
+    -->
+
+
+
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!-- Add typical dependencies for a web application -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -86,9 +101,20 @@
             <scope>provided</scope>
         </dependency>
         <!-- lombok-->
+
+        <!--actuator
+            Starter for using Spring Boot’s
+            Actuator which provides production ready features
+            to help you monitor and manage your application     -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--actuator-->
     </dependencies>
     <build>
         <plugins>
+            <!--Creating an Executable Jar-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
