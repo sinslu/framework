@@ -6,3 +6,7 @@ spring:
 server:
   servlet:
     context-path: /framework
+# 关闭mybatis-plus banner输出
+mybatis-plus:
+  global-config:
+    banner: false
