@@ -1,6 +1,8 @@
 spring:
   main:  #关闭 banner 注意 off要带引号
     banner-mode: "off"
+  profiles:
+    active: dev
 server:
   servlet:
     context-path: /framework
