@@ -5,3 +5,17 @@ spring:
     url: jdbc:mysql://127.0.90.52:3308/yykt?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false&allowMultiQueries=true
     username: yykt
     password: yykt!@#*
+
+  data:
+      solr:
+        host: http://127.0.30.185:8983/solr
+
+# dubbo  配置信息
+#dubbo:
+#  scan:
+#    base-packages: com.xin.dubbo.consumer
+#  registry:
+#    address: zookeeper://127.0.30.185:2181
+#  consumer:
+#    application: my-dubbo-consumer
+#    check: false

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestDubboController {
 
-    @Reference(interfaceClass = HelloService.class, version = "1.0.0",timeout = 2000)
+    //Reference(interfaceClass = HelloService.class, version = "1.0.0",timeout = 2000)
     private HelloService helloService;
 
     /**
      * @since 2.7.1
      */
     //@Reference(interfaceClass = GreetingService.class, version = AnnotationConstants.VERSION, methods = {@Method(name = "greeting", timeout = 250, retries = 1)})
-    @Reference(interfaceClass = GreetingService.class,version = "1.0.0",timeout = 2000)
+    //@Reference(interfaceClass = GreetingService.class,version = "1.0.0",timeout = 2000)
     private GreetingService greetingService;
 
     @RequestMapping("/doSayHello")
