@@ -16,8 +16,9 @@ public class ZookeeperConstructorUsageWithSIDPassword implements Watcher {
         countDownLatch.await();
         long sessionId=zooKeeper.getSessionId();
         byte[] password=zooKeeper.getSessionPasswd();
-
+        //使用非法的sessionId创建连接不成功
         zooKeeper=new ZooKeeper("127.0.30.185:2181",5000,new ZookeeperConstructorUsageWithSIDPassword(),123,"234".getBytes());
+        //使用原有的sessionId和password创建即可重新连接
         zooKeeper=new ZooKeeper("127.0.30.185:2181",5000,new ZookeeperConstructorUsageWithSIDPassword(),sessionId,password);
 
         Thread.sleep(Integer.MAX_VALUE);

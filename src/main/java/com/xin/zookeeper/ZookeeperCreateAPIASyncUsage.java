@@ -12,10 +12,11 @@ public class ZookeeperCreateAPIASyncUsage implements Watcher {
     public static void main(String[] args)throws  Exception {
         ZooKeeper zooKeeper=new ZooKeeper("127.0.30.185:2181",5000,new ZookeeperCreateAPIASyncUsage());
         countDownLatch.await();
-        zooKeeper.create("/zk-test-ephemeral","testdata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL,new IStringCallBack(),"I am context ...");
-        zooKeeper.create("/zk-test-ephemeral","testdata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL,new IStringCallBack(),"I am context ...");
+        //同步 创建znode
+        zooKeeper.create("/zk-test-ephemeral","testdata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT,new IStringCallBack(),"I am context ...");
+        //zooKeeper.create("/zk-test-ephemeral","testdata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL,new IStringCallBack(),"I am context ...");
         zooKeeper.create("/zk-test-ephemeral","testdata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL,new IStringCallBack(),"I am context ...");
-        Thread.sleep(50000);
+        Thread.sleep(Integer.MAX_VALUE);
     }
     @Override
     public void process(WatchedEvent watchedEvent) {
@@ -26,6 +27,12 @@ public class ZookeeperCreateAPIASyncUsage implements Watcher {
     }
 
 
+    /**
+     * 状态码i:  0 (ok)
+     *           -4 客户端和服务器已断开连接
+     *           -110 指定节点已存在
+     *           -112 会话已过期
+     */
    static class IStringCallBack implements AsyncCallback.StringCallback{
         @Override
         public void processResult(int i, String s, Object o, String s1) {

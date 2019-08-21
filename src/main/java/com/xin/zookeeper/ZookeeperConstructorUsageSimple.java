@@ -12,6 +12,7 @@ import java.util.concurrent.CountDownLatch;
 public class ZookeeperConstructorUsageSimple implements Watcher {
     private static CountDownLatch countDownLatch=new CountDownLatch(1);
     public static void main(String[] args)throws  Exception {
+        //链接客户端
         ZooKeeper zooKeeper=new ZooKeeper("127.0.30.185:2181",5000,new ZookeeperConstructorUsageSimple());
         System.out.println(zooKeeper.getState());
         try {

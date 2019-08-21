@@ -8,6 +8,7 @@ import org.apache.zookeeper.data.Stat;
 
 /**
  * Created by xsl on 2019/3/25.
+ * zookeeper 客户端 curator的使用
  */
 public class ConfigTest {
     public static void main(String[] args) throws Exception{
